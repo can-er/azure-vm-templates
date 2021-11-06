@@ -21,18 +21,16 @@ Aazure (optionnal)
 > Note : The script has been tested with the above versions but doesn't exclude other versions of these.
 
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
-Than you can go through the steps and begin to manage your application.
-
 ----------------------------------------------
 To reproduce the lab:
 
 ```sh
-C:\Users\Username> git clone https://github.com/can-er/azure-znuny-ubuntu
-C:\Users\Username> cd azure-znuny-ubuntu
-C:\Users\Username\azure-znuny-ubuntu> terraform init
-C:\Users\Username\azure-znuny-ubuntu> terraform validate
-C:\Users\Username\azure-znuny-ubuntu> terraform plan
-C:\Users\Username\azure-znuny-ubuntu> terraform apply
+C:\Users\Username> git clone https://github.com/can-er/azure-vm-template
+C:\Users\Username> cd azure-vm-template
+C:\Users\Username\azure-vm-template> terraform init
+C:\Users\Username\azure-vm-template> terraform validate
+C:\Users\Username\azure-vm-template> terraform plan
+C:\Users\Username\azure-vm-template> terraform apply
 Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
 
 Outputs:
@@ -47,8 +45,8 @@ vm_ip = [
   ...
 ]
 urls_for_installation = [
-  "friendlyname-1.location.cloudapp.azure.com/otrs/installer.pl",
-  "friendlyname-0.location.cloudapp.azure.com/otrs/installer.pl",
+  "friendlyname-1.location.cloudapp.azure.com",
+  "friendlyname-0.location.cloudapp.azure.com",
   ...
 ]
 ```

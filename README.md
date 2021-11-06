@@ -28,6 +28,24 @@ vm_size                     = "Standard_B2ms"
 numbercount                 = 1
 
 ```
+To create your own vm refer to the vms available via Azure CLI as follow:
+```
+C:\Users\Username> az vm image list --offer Windows-11 --all --output table
+Offer       Publisher                Sku                   Urn                                                                           Version
+----------  -----------------------  --------------------  ----------------------------------------------------------------------------  --------------------
+windows-11  MicrosoftWindowsDesktop  win11-21h2-avd        MicrosoftWindowsDesktop:windows-11:win11-21h2-avd:22000.194.2109272003        22000.194.2109272003
+windows-11  MicrosoftWindowsDesktop  win11-21h2-avd        MicrosoftWindowsDesktop:windows-11:win11-21h2-avd:22000.258.2110071642        22000.258.2110071642
+windows-11  MicrosoftWindowsDesktop  win11-21h2-ent        MicrosoftWindowsDesktop:windows-11:win11-21h2-ent:22000.194.2109272003        22000.194.2109272003
+windows-11  MicrosoftWindowsDesktop  win11-21h2-ent        MicrosoftWindowsDesktop:windows-11:win11-21h2-ent:22000.258.2110071642        22000.258.2110071642
+windows-11  MicrosoftWindowsDesktop  win11-21h2-entn       MicrosoftWindowsDesktop:windows-11:win11-21h2-entn:22000.194.2109272003       22000.194.2109272003
+windows-11  MicrosoftWindowsDesktop  win11-21h2-entn       MicrosoftWindowsDesktop:windows-11:win11-21h2-entn:22000.258.2110071642       22000.258.2110071642
+windows-11  MicrosoftWindowsDesktop  win11-21h2-pro        MicrosoftWindowsDesktop:windows-11:win11-21h2-pro:22000.194.2109272003        22000.194.2109272003
+windows-11  MicrosoftWindowsDesktop  win11-21h2-pro        MicrosoftWindowsDesktop:windows-11:win11-21h2-pro:22000.258.2110071642        22000.258.2110071642
+windows-11  MicrosoftWindowsDesktop  win11-21h2-pro-zh-cn  MicrosoftWindowsDesktop:windows-11:win11-21h2-pro-zh-cn:22000.194.2109272003  22000.194.2109272003
+windows-11  MicrosoftWindowsDesktop  win11-21h2-pro-zh-cn  MicrosoftWindowsDesktop:windows-11:win11-21h2-pro-zh-cn:22000.258.2110071642  22000.258.2110071642
+windows-11  MicrosoftWindowsDesktop  win11-21h2-pron       MicrosoftWindowsDesktop:windows-11:win11-21h2-pron:22000.194.2109272003       22000.194.2109272003
+windows-11  MicrosoftWindowsDesktop  win11-21h2-pron       MicrosoftWindowsDesktop:windows-11:win11-21h2-pron:22000.258.2110071642       22000.258.2110071642
+```
 > The user must be authenticated in Azure (e.g. ```az login```) before running the commands.
 <!--
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).

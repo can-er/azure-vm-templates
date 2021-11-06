@@ -43,6 +43,7 @@ Aazure (optionnal)
 > Note : The script has been tested with the above versions but doesn't exclude other versions of these.
 
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
+
 ----------------------------------------------
 To reproduce the lab:
 

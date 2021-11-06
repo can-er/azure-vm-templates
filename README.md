@@ -1,22 +1,46 @@
-# Azure-VM-templates
 
+# Azure VM templates
 
-* This script allows to create N virtual machines and is responsible in provisionning the machines in an Azure environment. The user must be authenticated in Azure before running the commands.
-* The provisionning of the VMs has been made with the installer ```install_znuny.sh``` which is copied and run on all the hosts after applying ```terraform apply```. The installation is based on the [official documentation instructions](https://doc.znuny.org/manual/releases/installupdate/install.html#installation).
+This set of scripts allows to create a set of VMs according the given specs in ```variables.tfvars``` file. These specs include the following variables:
 
+```
+vm_username                 = "username"
+keyvault_name               = "kvUserPass"
+secret_name                 = "userpassword"
+secret_value                = "changeme"
+resource_group_name         = "my_terraform_rg_demo"
+resource_group_location     = "West Europe"
+virtual_network_name        = "vnetdemo"
+subnet_name                 = "subnetdemo"
+public_ip_name              = "publicipdemo"
+network_security_group_name = "nsgproddemo"
+network_interface_name      = "nicproddemo"
+friendlyappname             = "canervm"
+linux_virtual_machine_name  = "linuxvmdemo"
+vm_publisher                = "Canonical"
+vm_offer                    = "UbuntuServer"
+vm_SKU                      = "18.04-LTS"
+vm_version                  = "latest"
+vm_size                     = "Standard_B2ms"
+numbercount                 = 1
+
+```
+> The user must be authenticated in Azure (e.g. ```az login```) before running the commands.
+<!--
+See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
+-->
+----------------------------------------------
 ### Software requirements
 
-Perl
-- Perl 5.16.0 or higher
-- Perl packages listed by /opt/otrs/bin/otrs.CheckEnvironment.pl console command
+Terraform
+- Terraform v1.0.2
+- Azurerm version ~>2.64.0
 
-Web Server
-- Apache2
+Aazure (optionnal)
+- azure-cli 2.28.0 
 
-Database
--  MariaDB 10.1.48
 
-> Note : The script has been tested on Ubuntu 18.04 LTS (VM size: *Standard B1ms* which means *1 vCPU, 2 GiB memory*)
+> Note : The script has been tested with the above versions but doesn't exclude other versions of these.
 
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
 
@@ -24,12 +48,12 @@ See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introd
 To reproduce the lab:
 
 ```sh
-C:\Users\Username> git clone https://github.com/can-er/azure-znuny-ubuntu
-C:\Users\Username> cd azure-znuny-ubuntu
-C:\Users\Username\azure-znuny-ubuntu> terraform init
-C:\Users\Username\azure-znuny-ubuntu> terraform validate
-C:\Users\Username\azure-znuny-ubuntu> terraform plan
-C:\Users\Username\azure-znuny-ubuntu> terraform apply
+C:\Users\Username> git clone https://github.com/can-er/azure-vm-template
+C:\Users\Username> cd azure-vm-template
+C:\Users\Username\azure-vm-template> terraform init
+C:\Users\Username\azure-vm-template> terraform validate
+C:\Users\Username\azure-vm-template> terraform plan
+C:\Users\Username\azure-vm-template> terraform apply
 Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
 
 Outputs:
@@ -44,23 +68,19 @@ vm_ip = [
   ...
 ]
 urls_for_installation = [
-  "friendlyname-1.location.cloudapp.azure.com/otrs/installer.pl",
-  "friendlyname-0.location.cloudapp.azure.com/otrs/installer.pl",
+  "friendlyname-1.location.cloudapp.azure.com",
+  "friendlyname-0.location.cloudapp.azure.com",
   ...
 ]
 ```
 ----------------------------------------------
-After doing these operations, you can launch the installer by visiting: <http://friendlyname-0.location.cloudapp.azure.com/otrs/installer.pl> as shown below: 
-![alt text](http://51.38.34.56/znuny_installer)
+After doing these operations, you can login to your VM via SSH, RDP or WinRM according the arguments of the considering resource. See [VM's args](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine#argument-reference) to list all existing connection types. 
 
-Than you can go through the steps and begin to manage your application.
-
-----------------------------------------------
-
+<!--
 ### Possible issues :
 * [Daemon not running](https://community.znuny.org/viewtopic.php?t=33255)
 * [ICMP configuration](https://doc.otrs.com/doc/manual/admin/8.0/en/content/communication-notifications/postmaster-mail-accounts.html#manage-mail-accounts)
 * [SMTP configuration](https://doc.otrs.com/doc/manual/admin/6.0/en/html/email-settings.html)
 * [Queues management](https://doc.otrs.com/doc/manual/admin/8.0/en/content/ticket-settings/queues.html)
-
+-->
 <!--![alt text](http://51.38.34.56/az_vm.PNG) -->

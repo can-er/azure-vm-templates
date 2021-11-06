@@ -1,8 +1,30 @@
 
 # Azure VM templates
 
-This set of scripts allows to create a VM according the given specs in ```variables.tfvars```file. A simple way to use this snippets is to clone 
+This set of scripts allows to create a set of VMs according the given specs in ```variables.tfvars```file. These specs include the following variables:
 
+```
+vm_username                 = "username"
+keyvault_name               = "kvUserPass"
+secret_name                 = "userpassword"
+secret_value                = "changeme"
+resource_group_name         = "my_terraform_rg_demo"
+resource_group_location     = "West Europe"
+virtual_network_name        = "vnetdemo"
+subnet_name                 = "subnetdemo"
+public_ip_name              = "publicipdemo"
+network_security_group_name = "nsgproddemo"
+network_interface_name      = "nicproddemo"
+friendlyappname             = "canervm"
+linux_virtual_machine_name  = "linuxvmdemo"
+vm_publisher                = "Canonical"
+vm_offer                    = "UbuntuServer"
+vm_SKU                      = "18.04-LTS"
+vm_version                  = "latest"
+vm_size                     = "Standard_B2ms"
+numbercount                 = 1
+
+```
 > The user must be authenticated in Azure (e.g. ```az login```) before running the commands.
 <!--
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).

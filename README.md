@@ -1,8 +1,24 @@
 
 # Azure VM templates
 
-This set of scripts allows to create a set of VMs according the given specs in ```variables.tfvars``` file. These specs include the following variables:
+This set of scripts allows to create a set of VMs.
 
+----------------------------------------------
+### Software requirements
+
+Terraform
+- Terraform v1.0.2
+- Azurerm version ~>2.64.0
+
+Aazure (optionnal)
+- azure-cli 2.28.0 
+
+
+> Note : The script has been tested with the above versions but doesn't exclude other versions of these.
+
+See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
+
+The VMs will be created according the given specs in ```variables.tfvars``` file. These specs include the following variables:
 ```
 # Username & Password settings
 vm_username                 = "username"
@@ -50,21 +66,6 @@ windows-11  MicrosoftWindowsDesktop  win11-21h2-pron       MicrosoftWindowsDeskt
 <!--
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
 -->
-----------------------------------------------
-### Software requirements
-
-Terraform
-- Terraform v1.0.2
-- Azurerm version ~>2.64.0
-
-Aazure (optionnal)
-- azure-cli 2.28.0 
-
-
-> Note : The script has been tested with the above versions but doesn't exclude other versions of these.
-
-See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
-
 ----------------------------------------------
 To reproduce the lab:
 

@@ -1,7 +1,7 @@
 
 # Azure VM templates
 
-This set of scripts allows to create a set of VMs according the given specs in ```variables.tfvars```file. These specs include the following variables:
+This set of scripts allows to create a set of VMs according the given specs in ```variables.tfvars``` file. These specs include the following variables:
 
 ```
 vm_username                 = "username"

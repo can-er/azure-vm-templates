@@ -4,9 +4,9 @@
 This set of scripts allows to create a VM according the given specs in ```variables.tfvars```file. A simple way to use this snippets is to clone 
 
 > The user must be authenticated in Azure (e.g. ```az login```) before running the commands.
-
+<!--
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
-
+-->
 ----------------------------------------------
 ### Software requirements
 

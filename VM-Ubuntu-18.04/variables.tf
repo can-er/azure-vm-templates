@@ -92,3 +92,4 @@ variable "numbercount" {
 variable "friendlyappname" {
   type        = string
   description = "subdomain of the app"
+}

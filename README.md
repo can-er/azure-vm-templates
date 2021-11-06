@@ -70,7 +70,7 @@ See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introd
 To reproduce the lab:
 
 ```sh
-C:\Users\Username> git clone https://github.com/can-er\azure-vm-template
+C:\Users\Username> git clone https://github.com/can-er/azure-vm-template
 C:\Users\Username> cd azure-vm-template\any-folder
 C:\Users\Username\azure-vm-template\any-folder> terraform init
 C:\Users\Username\azure-vm-template\any-folder> terraform validate

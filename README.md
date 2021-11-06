@@ -37,7 +37,7 @@ Terraform
 - Azurerm version ~>2.64.0
 
 Aazure (optionnal)
-- azure-cli 2.28.0 *
+- azure-cli 2.28.0 
 
 
 > Note : The script has been tested with the above versions but doesn't exclude other versions of these.

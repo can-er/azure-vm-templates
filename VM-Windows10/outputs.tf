@@ -19,5 +19,5 @@ output "vm_ip" {
 output "urls_for_installation" {
   description = "Friendly name to access the demo from the browser"
   #value = [for domain_name in azurerm_public_ip.public_ip.*.domain_name_label : format("${domain_name}.%s","${azurerm_resource_group.rg.location}.cloudapp.azure.com")]
-  value = [for domain_name in azurerm_public_ip.public_ip.*.domain_name_label : "${domain_name}.${azurerm_resource_group.rg.location}.cloudapp.azure.com/otrs/installer.pl"]
+  value = [for domain_name in azurerm_public_ip.public_ip.*.domain_name_label : "${domain_name}.${azurerm_resource_group.rg.location}.cloudapp.azure.com"]
 }

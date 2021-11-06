@@ -52,11 +52,11 @@ To reproduce the lab:
 
 ```sh
 C:\Users\Username> git clone https://github.com/can-er/azure-vm-template
-C:\Users\Username> cd azure-vm-template
-C:\Users\Username\azure-vm-template> terraform init
-C:\Users\Username\azure-vm-template> terraform validate
-C:\Users\Username\azure-vm-template> terraform plan
-C:\Users\Username\azure-vm-template> terraform apply
+C:\Users\Username> cd azure-vm-template/any-folder
+C:\Users\Username\azure-vm-template\any-folder> terraform init
+C:\Users\Username\azure-vm-template\any-folder> terraform validate
+C:\Users\Username\azure-vm-template\any-folder> terraform plan
+C:\Users\Username\azure-vm-template\any-folder> terraform apply
 Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
 
 Outputs:

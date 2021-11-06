@@ -86,5 +86,9 @@ variable "vm_size" {
 
 variable "numbercount" {
     type      = number
-    default   = 2
+    description = "N of VMs to deploy"
 } 
+
+variable "friendlyappname" {
+  type        = string
+  description = "subdomain of the app"

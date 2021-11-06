@@ -1,24 +1,27 @@
-# Azure-VM-templates
 
+# Azure VM templates
 
-* This script allows to create N virtual machines and is responsible in provisionning the machines in an Azure environment. The user must be authenticated in Azure before running the commands.
-* The provisionning of the VMs has been made with the installer ```install_znuny.sh``` which is copied and run on all the hosts after applying ```terraform apply```. The installation is based on the [official documentation instructions](https://doc.znuny.org/manual/releases/installupdate/install.html#installation).
+This set of scripts allows to create a VM according the given specs in ```variables.tfvars```file. A simple way to use this snippets is to clone 
 
-### Software requirements
-
-Perl
-- Perl 5.16.0 or higher
-- Perl packages listed by /opt/otrs/bin/otrs.CheckEnvironment.pl console command
-
-Web Server
-- Apache2
-
-Database
--  MariaDB 10.1.48
-
-> Note : The script has been tested on Ubuntu 18.04 LTS (VM size: *Standard B1ms* which means *1 vCPU, 2 GiB memory*)
+> The user must be authenticated in Azure (e.g. ```az login```) before running the commands.
 
 See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
+
+----------------------------------------------
+### Software requirements
+
+Terraform
+- Terraform v1.0.2
+- Azurerm version ~>2.64.0
+
+Aazure (optionnal)
+- azure-cli 2.28.0 *
+
+
+> Note : The script has been tested with the above versions but doesn't exclude other versions of these.
+
+See Azure B-Series VM sizes [here](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/).
+Than you can go through the steps and begin to manage your application.
 
 ----------------------------------------------
 To reproduce the lab:
@@ -50,17 +53,13 @@ urls_for_installation = [
 ]
 ```
 ----------------------------------------------
-After doing these operations, you can launch the installer by visiting: <http://friendlyname-0.location.cloudapp.azure.com/otrs/installer.pl> as shown below: 
-![alt text](http://51.38.34.56/znuny_installer)
+After doing these operations, you can login to your VM via SSH, RDP or WinRM according the arguments of the considering resource. See [VM's args](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine#argument-reference) to list all existing connection types. 
 
-Than you can go through the steps and begin to manage your application.
-
-----------------------------------------------
-
+<!--
 ### Possible issues :
 * [Daemon not running](https://community.znuny.org/viewtopic.php?t=33255)
 * [ICMP configuration](https://doc.otrs.com/doc/manual/admin/8.0/en/content/communication-notifications/postmaster-mail-accounts.html#manage-mail-accounts)
 * [SMTP configuration](https://doc.otrs.com/doc/manual/admin/6.0/en/html/email-settings.html)
 * [Queues management](https://doc.otrs.com/doc/manual/admin/8.0/en/content/ticket-settings/queues.html)
-
+-->
 <!--![alt text](http://51.38.34.56/az_vm.PNG) -->

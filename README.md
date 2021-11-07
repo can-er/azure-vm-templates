@@ -1,7 +1,7 @@
 
 # Azure VM templates
 
-This set of scripts allows to create a set of VMs.
+These scripts allow to create a set numbers of VMs.
 
 ----------------------------------------------
 ### Software requirements

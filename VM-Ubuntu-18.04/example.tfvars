@@ -4,7 +4,7 @@ keyvault_name               = "kvUserPass"
 secret_name                 = "userpassword"
 secret_value                = "changeme"
 # Network & RG settings
-resource_group_name         = "my_terraform_rg_demo"
+resource_group_name         = "ubuntu18_rg"
 resource_group_location     = "West Europe"
 virtual_network_name        = "vnetdemo"
 subnet_name                 = "subnetdemo"

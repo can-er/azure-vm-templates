@@ -1,7 +1,7 @@
 
 # Azure VM templates
 
-These scripts allow to create a set numbers of VMs.
+These scripts allow to create a set numbers of VMs that I use regularly. Feel free to pick and share it.
 
 ----------------------------------------------
 ### Software requirements

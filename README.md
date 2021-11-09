@@ -16,7 +16,7 @@ Azure (optionnal)
 
 > Note : The script has been tested with the above versions but doesn't exclude other versions of these.
 
-The VMs will be created according the given specs in ```variables.tfvars``` file. These specs include the following variables:
+The VMs will be created according the given specs in ```examples.tfvars``` file. These specs include the following variables:
 ```
 # Username & Password settings
 vm_username                 = "username"

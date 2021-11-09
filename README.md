@@ -42,7 +42,7 @@ vm_size                     = "Standard_B2ms"
 numbercount                 = 1
 
 ```
-Change `vm_username`, `secret_value`, `friendlyappname` and other fields to configure your instances. See Azure [B-Series VM sizes](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/) for more information about it. For the settings of the VM refer to the available images via Azure CLI as follow:
+Change `vm_username`, `secret_value`, `friendlyappname` and other fields to configure your instances. See Azure [B-Series VM sizes](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/) for more information the size. For the settings of the VM refer to the available images via Azure CLI as follow:
 ```
 C:\Users\Username> az vm image list --offer Windows-11 --all --output table
 Offer       Publisher                Sku                   Urn                                                                           Version

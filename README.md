@@ -87,7 +87,7 @@ vm_ip = [
   "YY.YY.YY.YY",
   ...
 ]
-urls_of_the_instances = [
+urls_of_instances = [
   "friendlyname-1.location.cloudapp.azure.com",
   "friendlyname-0.location.cloudapp.azure.com",
   ...

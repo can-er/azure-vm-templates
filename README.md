@@ -10,7 +10,7 @@ Terraform
 - Terraform v1.0.2
 - Azurerm version ~>2.64.0
 
-Aazure (optionnal)
+Azure (optionnal)
 - azure-cli 2.28.0 
 
 

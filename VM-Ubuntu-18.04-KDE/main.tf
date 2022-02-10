@@ -30,9 +30,9 @@ resource "azurerm_key_vault" "keyvault" {
 
     key_permissions = [
       "get",
-      "list",
       "delete",
-      "purge",    ]
+      "purge",    
+    ]
 
     secret_permissions = [
       "get",
@@ -46,7 +46,8 @@ resource "azurerm_key_vault" "keyvault" {
       "get",
       "list",
       "delete",
-      "purge",    ]
+      "purge",
+      ]
   }
 
 # Allows to add network access control lists that acts as a firewall for controlling traffic in and out
@@ -64,21 +65,26 @@ resource "azurerm_key_vault_secret" "user-pwd" {
   key_vault_id = azurerm_key_vault.keyvault.id
 }
 
-# Another way to create key vault access policy instead of doing through azurerm_key_vault resource
-# resource "azurerm_key_vault_access_policy" "policy" {
-#   key_vault_id = azurerm_key_vault.keyvault.id
-#
-#   tenant_id = data.azurerm_client_config.current.tenant_id
-#   object_id = "11111111-1111-1111-1111-111111111111" # SPN ID
-#
-#   key_permissions = [
-#     "get",
-#   ]
-#
-#   secret_permissions = [
-#     "get",
-#   ]
-# }
+key_permissions = [
+      "get",
+      "purge",
+      "delete",
+    ]
+
+    secret_permissions = [
+      "get",
+      "list",
+      "set",
+      "delete",
+      "purge",
+    ]
+
+    storage_permissions = [
+      "get",
+      "purge",
+      "delete",
+    ]
+
 
 # Create virtual network
 resource "azurerm_virtual_network" "vnet" {

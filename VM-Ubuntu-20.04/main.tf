@@ -30,6 +30,8 @@ resource "azurerm_key_vault" "keyvault" {
 
     key_permissions = [
       "get",
+      "delete",
+      "purge",    
     ]
 
     secret_permissions = [
@@ -37,11 +39,15 @@ resource "azurerm_key_vault" "keyvault" {
       "list",
       "set",
       "delete",
+      "purge",
     ]
 
     storage_permissions = [
       "get",
-    ]
+      "list",
+      "delete",
+      "purge",
+      ]
   }
 
 # Allows to add network access control lists that acts as a firewall for controlling traffic in and out

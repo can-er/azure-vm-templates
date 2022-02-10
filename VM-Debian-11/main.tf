@@ -28,8 +28,10 @@ resource "azurerm_key_vault" "keyvault" {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
 
-    key_permissions = [
+  key_permissions = [
       "get",
+      "purge",
+      "delete",
     ]
 
     secret_permissions = [
@@ -37,11 +39,15 @@ resource "azurerm_key_vault" "keyvault" {
       "list",
       "set",
       "delete",
+      "purge",
     ]
 
     storage_permissions = [
       "get",
+      "purge",
+      "delete",
     ]
+
   }
 
 # Allows to add network access control lists that acts as a firewall for controlling traffic in and out

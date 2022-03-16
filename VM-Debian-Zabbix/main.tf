@@ -249,9 +249,13 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "sudo wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-1+debian11_all.deb",
       "sudo dpkg -i zabbix-release_6.0-1+debian11_all.deb",
       "sudo apt update",
-      "sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent ",
+      "sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent mariadb-server -y",
       "sudo mysql --user=root --execute='create database zabbix character set utf8mb4 collate utf8mb4_bin;'",
-      "sudo mysql --user=root --execute='grant all privileges on zabbix.* to root@localhost;'",      
+      "sudo mysql --user=root --execute='grant all privileges on zabbix.* to root@localhost;'",
+      "sudo zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uroot -D zabbix",
+      "sudo sed -i 's/^DBUser= .*$/DBUser=root/' /etc/zabbix/zabbix_server.conf",
+      "sudo systemctl restart zabbix-server zabbix-agent apache2",
+      "sudo systemctl enable zabbix-server zabbix-agent apache2",
     ]
   }
 

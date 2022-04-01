@@ -93,3 +93,8 @@ variable "friendlyappname" {
   type        = string
   description = "subdomain of the app"
 }
+
+variable "scriptname" {
+  type        = string
+  description = "Script to run for provisionning the VMs"
+}

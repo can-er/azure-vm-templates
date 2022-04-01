@@ -20,3 +20,5 @@ vm_SKU                      = "11"
 vm_version                  = "latest"
 vm_size                     = "Standard_B2ms"
 numbercount                 = 1
+# Provisioning script settings
+scriptname                  = "provisioning.sh"

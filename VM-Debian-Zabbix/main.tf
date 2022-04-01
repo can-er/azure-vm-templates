@@ -235,10 +235,23 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
     storage_account_uri = azurerm_storage_account.storage.primary_blob_endpoint
   }
   
+  provisioner "file" {
+
+    connection {
+      host        = azurerm_public_ip.public_ip[count.index].ip_address
+      type        = "ssh"
+      user        = var.vm_username
+      private_key = file("~/.ssh/id_rsa")
+    }
+
+    source      = var.scriptname
+    destination = "/home/${var.vm_username}/${var.scriptname}"
+  }
+
+
   provisioner "remote-exec" {
     
     connection {
-      #host = "${element(azurerm_public_ip.public_ip.*.ip_address, count.index)}"
       host =  "${azurerm_public_ip.public_ip[count.index].ip_address}"
       type = "ssh"
       user = var.vm_username
@@ -246,16 +259,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
     }
 
     inline = [
-      "sudo wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-1+debian11_all.deb",
-      "sudo dpkg -i zabbix-release_6.0-1+debian11_all.deb",
-      "sudo apt update",
-      "sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent mariadb-server -y",
-      "sudo mysql --user=root --execute='create database zabbix character set utf8mb4 collate utf8mb4_bin;'",
-      "sudo mysql --user=root --execute='grant all privileges on zabbix.* to root@localhost;'",
-      "sudo zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uroot -D zabbix",
-      "sudo sed -i 's/^DBUser= .*$/DBUser=root/' /etc/zabbix/zabbix_server.conf",
-      "sudo systemctl restart zabbix-server zabbix-agent apache2",
-      "sudo systemctl enable zabbix-server zabbix-agent apache2",
+      "sudo chmod +x /home/${var.vm_username}/${var.scriptname}",
+      "sudo /home/${var.vm_username}/${var.scriptname} && sudo rm -f /home/${var.vm_username}/${var.scriptname}",
     ]
   }
 
